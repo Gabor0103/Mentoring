@@ -1,12 +1,10 @@
 package com.gabor.abstracts;
 
-import com.gabor.interfaces.IDog;
 
-public abstract class AbstractDog implements IDog
+public abstract class AbstractDog
 {	
-	//abstract public String bark();
+	abstract public String bark();
 
-	@Override
 	public String walk()
 	{
 		StringBuilder whatDoesTheDogSays = new StringBuilder();
