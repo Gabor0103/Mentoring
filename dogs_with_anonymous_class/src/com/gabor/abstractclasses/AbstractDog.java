@@ -1,9 +1,10 @@
 package com.gabor.abstractclasses;
 
 import com.gabor.interfaces.IDog;
-//Ha nem abstarct az osztály hibát jelez hogy unimplemented method. Miért?
+
+
 public abstract class AbstractDog implements IDog
-{
+{	
 	public String walk()
 	{
 		StringBuilder whatDoesTheDogSays = new StringBuilder();
