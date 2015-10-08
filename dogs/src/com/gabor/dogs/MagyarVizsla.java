@@ -1,9 +1,8 @@
 package com.gabor.dogs;
 
 import com.gabor.abstracts.AbstractDog;
-import com.gabor.interfaces.IDog;
 
-public class MagyarVizsla extends AbstractDog implements IDog
+public class MagyarVizsla extends AbstractDog
 {
 
 	@Override
