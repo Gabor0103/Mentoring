@@ -10,4 +10,10 @@ public class MagyarVizsla extends AbstractDog
 	{
 		return "I am a vizsla";
 	}
+	
+//	Hiba hogy töröljem a final kulcsszót
+//	public String sniffing()
+//	{
+//		return "I am rushing";
+//	}
 }

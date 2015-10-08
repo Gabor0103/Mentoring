@@ -14,5 +14,10 @@ public abstract class AbstractDog
 		}
 		return whatDoesTheDogSays.toString();
 	}
+	
+	public final String sniffing()
+	{
+		return "I like sniffing";
+	}
 
 }
