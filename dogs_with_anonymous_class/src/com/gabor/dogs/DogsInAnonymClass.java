@@ -5,6 +5,14 @@ import com.gabor.abstractclasses.AbstractDog;
 
 public class DogsInAnonymClass
 {
+	public static class Puli extends AbstractDog
+	{
+		public String bark()
+		{
+			return "I am a static Puli";
+		}
+	}
+	
 	public class Kuvasz extends AbstractDog
 	{
 		public String bark()
