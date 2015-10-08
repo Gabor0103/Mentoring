@@ -4,7 +4,6 @@ import com.gabor.interfaces.IDog;
 
 public abstract class AbstractDog implements IDog
 {	
-	//abstract public String bark();
 
 	@Override
 	public String walk()
