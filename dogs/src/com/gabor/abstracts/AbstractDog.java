@@ -1,23 +1,28 @@
 package com.gabor.abstracts;
 
 
-public abstract class AbstractDog
+public abstract class AbstractDog implements Comparable<AbstractDog>
 {	
+	public int mass;
+	public int speed;
+	
 	abstract public String bark();
 
 	public String walk()
 	{
 		StringBuilder whatDoesTheDogSays = new StringBuilder();
-		for(int i = 0; i < 3; i++)
-		{
-			whatDoesTheDogSays.append(bark() + " " + i + ", ");
-		}
-		return whatDoesTheDogSays.toString();
+		return whatDoesTheDogSays.append(bark()).toString();
 	}
 	
 	public final String sniffing()
 	{
 		return "I like sniffing";
 	}
-
+	
+	@Override
+	public int compareTo(AbstractDog o)
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
