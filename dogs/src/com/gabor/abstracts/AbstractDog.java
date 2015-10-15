@@ -20,9 +20,8 @@ public abstract class AbstractDog implements Comparable<AbstractDog>
 	}
 	
 	@Override
-	public int compareTo(AbstractDog o)
+	public int compareTo(AbstractDog dog)
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return dog.mass - this.mass;
 	}
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import com.gabor.abstracts.AbstractDog;
 import com.gabor.dogs.Foxi;
 import com.gabor.dogs.NemetJuhasz;
+import com.gabor.dogs.Spaniel;
 import com.gabor.person.Person;
 
 public class Walk
@@ -16,19 +17,46 @@ public class Walk
 	{
 		Person person = new Person();
 
-		NemetJuhasz nemetjuhasz = new NemetJuhasz(4, 20);
-		person.walkWithDog(nemetjuhasz);
-
-		List<AbstractDog> list = createList();
+//		NemetJuhasz nemetjuhasz = new NemetJuhasz(4, 20);
+//		person.walkWithDog(nemetjuhasz);
+		
+		//Abstract kutya implementalja a Comperable interface-t
+		List<AbstractDog> list = createFoxiList();
 
 		Collections.sort(list);
 		for (AbstractDog dog : list)
 		{
-			System.out.println(dog.mass);
+			System.out.println(dog.bark() + ", My weight is: " +dog.mass);
 		}
+		
+		//Külön rendezõ osztály amely implementálja a Comperatot interface-t
+		List<Spaniel> spanielList = createSpanielList();
+		Collections.sort(spanielList, new Spaniel());
+		
+		for(Spaniel sp : spanielList)
+		{
+			System.out.println("I am a spaniel and my weight: " + sp.getMass() + " and my speed is: " + sp.getSpeed());
+		}
+		
 	}
 
-	private static List<AbstractDog> createList()
+	private static List<Spaniel> createSpanielList()
+	{
+		Spaniel spaniel1 = new Spaniel(1,22);
+		Spaniel spaniel2 = new Spaniel(4,20);
+		Spaniel spaniel3 = new Spaniel(3,16);
+		Spaniel spaniel4 = new Spaniel(5,29);
+
+		List<Spaniel> list = new ArrayList<Spaniel>();
+		list.add(spaniel1);
+		list.add(spaniel2);
+		list.add(spaniel3);
+		list.add(spaniel4);
+
+		return list;
+	}
+	
+	private static List<AbstractDog> createFoxiList()
 	{
 		Foxi foxi1 = new Foxi(4, 10);
 		Foxi foxi2 = new Foxi(5, 12);

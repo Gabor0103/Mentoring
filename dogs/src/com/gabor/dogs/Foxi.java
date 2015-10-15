@@ -13,11 +13,12 @@ public class Foxi extends AbstractDog
 		this.speed = speed;
 	}
 
-	@Override
-	public int compareTo(AbstractDog dog)
-	{
-		return dog.mass - this.mass;
-	}
+//	Itt módosítani lehetne a rendezésen!
+//	@Override
+//	public int compareTo(AbstractDog dog)
+//	{
+//		return dog.mass - this.mass;
+//	}
 
 	@Override
 	public String bark()
