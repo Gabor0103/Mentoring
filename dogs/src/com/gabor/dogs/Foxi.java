@@ -9,8 +9,9 @@ public class Foxi extends AbstractDog
 
 	public Foxi(int mass, int speed)
 	{
-		this.mass = mass;
-		this.speed = speed;
+		super(speed, mass);
+//		this.mass = mass;
+//		this.speed = speed;
 	}
 
 //	Itt módosítani lehetne a rendezésen!

@@ -5,6 +5,11 @@ import com.gabor.abstracts.AbstractDog;
 public class MagyarVizsla extends AbstractDog
 {
 
+	public MagyarVizsla(int speed, int mass)
+	{
+		super(speed, mass);
+	}
+
 	@Override
 	public String bark()
 	{

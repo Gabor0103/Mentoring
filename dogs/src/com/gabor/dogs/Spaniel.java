@@ -1,10 +1,12 @@
 package com.gabor.dogs;
 
+import com.gabor.abstracts.AbstractDog;
 
-public class Spaniel extends DogsSorting
+
+public class Spaniel extends AbstractDog
 {
-	int mass;
-	int speed;
+//	int mass;
+//	int speed;
 	
 	public int getMass()
 	{
@@ -25,15 +27,18 @@ public class Spaniel extends DogsSorting
 	{
 		this.speed = speed;
 	}
-
-	public Spaniel()
-	{
-		
-	}
 	
 	public Spaniel(int mass, int speed)
 	{
-		this.mass = mass;
-		this.speed = speed;
+		super(speed, mass);
+//		this.mass = mass;
+//		this.speed = speed;
+	}
+
+	@Override
+	public String bark()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -6,6 +6,12 @@ public abstract class AbstractDog implements Comparable<AbstractDog>
 	public int mass;
 	public int speed;
 	
+	public AbstractDog(int speed, int mass)
+	{
+		this.mass = mass;
+		this.speed = speed;
+	}
+	
 	abstract public String bark();
 
 	public String walk()

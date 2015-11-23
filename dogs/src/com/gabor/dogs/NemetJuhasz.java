@@ -11,6 +11,8 @@ public final class NemetJuhasz extends AbstractDog //Mivel final nem lehet szárm
 	final static int legs = 4; //Mikor példányosítjuk akkor jön létre egyszer a memóriában
 	int barkVolume;
 	int speed;
+	
+	//final static map
 	private static final Map<Integer, String> myMap;
 		static
 		{
@@ -20,8 +22,9 @@ public final class NemetJuhasz extends AbstractDog //Mivel final nem lehet szárm
 	
 	public NemetJuhasz(int barkVolume, int speed)
 	{
+		super(0, speed);
 		this.barkVolume = barkVolume;
-		this.speed = speed;
+//		this.speed = speed;
 	}
 	
 	public final static void run() // mivel final nem lehet Override-olni
