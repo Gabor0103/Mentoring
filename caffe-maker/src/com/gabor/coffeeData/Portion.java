@@ -2,6 +2,7 @@ package com.gabor.coffeeData;
 
 public enum Portion
 {
+	EMPTY(0),
 	SMALL(1),
 	MEDIUM(2),
 	LARGE(5);
@@ -13,7 +14,7 @@ public enum Portion
 		this.portion = portion;
 	}
 	
-	public int getID()
+	public int getSize()
 	{
 		return portion;
 	}

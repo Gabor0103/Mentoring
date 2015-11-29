@@ -8,35 +8,46 @@ import com.gabor.coffeeMaker.exceptions.NotEnoughPortion;
 
 public class CoffeeMachine implements ICoffeeMachine
 {
-
 	IContainer waterContainer;
-	
 	IContainer coffeeContainer;
+	
+	public CoffeeMachine(IContainer waterContainer, IContainer coffeeContainer)
+	{
+		this.coffeeContainer = coffeeContainer;
+		this.waterContainer = waterContainer;
+	}
 	
 	@Override
 	public boolean makeCoffee(Portion portion) throws NotEnoughPortion
 	{
-		if(!coffeeContainer.getPortion(portion) && !waterContainer.getPortion(portion))
+		boolean isCoffeeEnough;
+		boolean isWaterEnough;
+
+		isCoffeeEnough = coffeeContainer.getPortion(portion);
+		isWaterEnough = waterContainer.getPortion(portion);
+
+		
+		if(isCoffeeEnough && isWaterEnough)
 		{
-			throw new NotEnoughPortion();
+			return true;
 		}
 		else
 		{
-			
+			return false;
 		}
-		return true;
+		
 	}
 
-	@Override
-	public IContainer getCoffeeContainer()
-	{
-		return coffeeContainer;
-	}
-
-	@Override
-	public IContainer getWaterContainer()
-	{
-		return waterContainer;
-	}
+//	@Override
+//	public IContainer getCoffeeContainer()
+//	{
+//		return coffeeContainer;
+//	}
+//
+//	@Override
+//	public IContainer getWaterContainer()
+//	{
+//		return waterContainer;
+//	}
 
 }

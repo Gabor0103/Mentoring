@@ -7,7 +7,7 @@ public interface ICoffeeMachine
 {
 	 boolean makeCoffee(Portion portion) throws NotEnoughPortion;
 	 
-	 IContainer getCoffeeContainer();
-	 
-	 IContainer getWaterContainer();
+//	 IContainer getCoffeeContainer();
+//	 
+//	 IContainer getWaterContainer();
 }

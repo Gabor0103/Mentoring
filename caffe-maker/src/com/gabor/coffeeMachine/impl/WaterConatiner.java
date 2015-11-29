@@ -1,33 +1,13 @@
 package com.gabor.coffeeMachine.impl;
 
-import com.gabor.coffeeData.Portion;
-import com.gabor.coffeeMachine.IContainer;
-import com.gabor.coffeeMaker.exceptions.NotEnoughPortion;
 
-public class WaterConatiner implements IContainer
+public class WaterConatiner extends Container
 {
+	int currentVolume;
+	int totalVolume;
 	
-	@Override
-	public boolean getPortion(Portion portion) throws NotEnoughPortion
+	public WaterConatiner(int volume)
 	{
-		return false;
-	}
-
-	@Override
-	public int getTotalVolume()
-	{
-		return 0;
-	}
-
-	@Override
-	public int getCurrentVolume()
-	{
-		return 0;
-	}
-
-	@Override
-	public void refillConatiner()
-	{
-		
+		super(volume);
 	}
 }
