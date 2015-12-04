@@ -1,5 +1,6 @@
 package com.gabor.unitTests;
 
+import org.easymock.EasyMock;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;

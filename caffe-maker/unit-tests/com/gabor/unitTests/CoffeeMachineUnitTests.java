@@ -1,10 +1,9 @@
 package com.gabor.unitTests;
 
 import static org.junit.Assert.fail;
-import static org.easymock.EasyMock.replay;
-import static org.easymock.EasyMock.verify;
 
 import org.easymock.EasyMock;
+import org.easymock.IMocksControl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,9 +11,7 @@ import org.junit.Test;
 import com.gabor.coffeeData.Portion;
 import com.gabor.coffeeMachine.ICoffeeMachine;
 import com.gabor.coffeeMachine.IContainer;
-import com.gabor.coffeeMachine.impl.CoffeeConatiner;
 import com.gabor.coffeeMachine.impl.CoffeeMachine;
-import com.gabor.coffeeMachine.impl.WaterConatiner;
 import com.gabor.coffeeMaker.exceptions.NotEnoughPortion;
 
 public class CoffeeMachineUnitTests
@@ -23,13 +20,16 @@ public class CoffeeMachineUnitTests
 	ICoffeeMachine coffeeMachine;
 	IContainer waterContainer;
 	IContainer coffeeContainer;
+	IMocksControl mock;
 	
 	
 	@Before
 	public void setUp()
 	{
-		coffeeContainer = EasyMock.createMock(CoffeeConatiner.class);
-		waterContainer = EasyMock.createMock(WaterConatiner.class);
+		mock = EasyMock.createStrictControl();
+		
+		coffeeContainer = mock.createMock(IContainer.class);
+		waterContainer = mock.createMock(IContainer.class);
 		
 		coffeeMachine = new CoffeeMachine(waterContainer, coffeeContainer);
 	}
@@ -40,11 +40,11 @@ public class CoffeeMachineUnitTests
 		EasyMock.expect(coffeeContainer.getPortion(Portion.LARGE)).andReturn(true);
 		EasyMock.expect(waterContainer.getPortion(Portion.LARGE)).andReturn(true);
 		
-		replay(waterContainer, coffeeContainer);
+		mock.replay();
 		
 		Assert.assertEquals(true, coffeeMachine.makeCoffee(Portion.LARGE));
 		
-		verify(waterContainer, coffeeContainer);
+		mock.verify();
 	}
 	
 	@Test
@@ -53,11 +53,11 @@ public class CoffeeMachineUnitTests
 		EasyMock.expect(coffeeContainer.getPortion(Portion.LARGE)).andReturn(true);
 		EasyMock.expect(waterContainer.getPortion(Portion.LARGE)).andReturn(false);
 		
-		replay(waterContainer, coffeeContainer);
+		mock.replay();
 		
 		Assert.assertEquals(false, coffeeMachine.makeCoffee(Portion.LARGE));
 		
-		verify(waterContainer, coffeeContainer);
+		mock.verify();
 	}
 	
 	@Test
@@ -66,7 +66,7 @@ public class CoffeeMachineUnitTests
 		EasyMock.expect(coffeeContainer.getPortion(Portion.LARGE)).andReturn(true);
 		EasyMock.expect(waterContainer.getPortion(Portion.LARGE)).andThrow(new NotEnoughPortion());
 		
-		replay(waterContainer, coffeeContainer);
+		mock.replay();
 		try
 		{
 			coffeeMachine.makeCoffee(Portion.LARGE);
@@ -76,7 +76,6 @@ public class CoffeeMachineUnitTests
 		{
 			//expected
 		}
-		verify(waterContainer, coffeeContainer);
+		mock.verify();
 	}
-
 }
