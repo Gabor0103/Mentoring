@@ -1,12 +1,12 @@
 package com.gabor.unitTests;
 
-import static org.junit.Assert.fail;
-
 import org.easymock.EasyMock;
 import org.easymock.IMocksControl;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import com.gabor.coffeeData.Portion;
 import com.gabor.coffeeMachine.ICoffeeMachine;
@@ -22,6 +22,8 @@ public class CoffeeMachineUnitTests
 	IContainer coffeeContainer;
 	IMocksControl mock;
 	
+	@Rule
+	public ExpectedException exception = ExpectedException.none();
 	
 	@Before
 	public void setUp()
@@ -37,12 +39,12 @@ public class CoffeeMachineUnitTests
 	@Test
 	public void testMakeCoffee() throws NotEnoughPortion
 	{
-		EasyMock.expect(coffeeContainer.getPortion(Portion.LARGE)).andReturn(true);
-		EasyMock.expect(waterContainer.getPortion(Portion.LARGE)).andReturn(true);
-		
+		EasyMock.expect(coffeeContainer.getPortion(Portion.SMALL)).andReturn(true);
+		EasyMock.expect(waterContainer.getPortion(Portion.SMALL)).andReturn(true);
+
 		mock.replay();
-		
-		Assert.assertEquals(true, coffeeMachine.makeCoffee(Portion.LARGE));
+				
+		Assert.assertEquals(true, coffeeMachine.makeCoffee(Portion.SMALL));
 		
 		mock.verify();
 	}
@@ -67,15 +69,31 @@ public class CoffeeMachineUnitTests
 		EasyMock.expect(waterContainer.getPortion(Portion.LARGE)).andThrow(new NotEnoughPortion());
 		
 		mock.replay();
-		try
-		{
-			coffeeMachine.makeCoffee(Portion.LARGE);
-			fail("Should be thrown NotEnoughPortion exception");
-		}
-		catch(NotEnoughPortion e)
-		{
-			//expected
-		}
+
+		exception.expect(NotEnoughPortion.class);
+		coffeeMachine.makeCoffee(Portion.LARGE);
+
+		mock.verify();
+	}
+	
+	@Test
+	public void testMakeCoffeeWhenThirdCallThrowException() throws NotEnoughPortion
+	{
+		EasyMock.expect(coffeeContainer.getPortion(Portion.SMALL)).andReturn(true);
+		EasyMock.expect(waterContainer.getPortion(Portion.SMALL)).andReturn(true);
+		EasyMock.expect(coffeeContainer.getPortion(Portion.SMALL)).andReturn(true);
+		EasyMock.expect(waterContainer.getPortion(Portion.SMALL)).andReturn(true);
+		EasyMock.expect(coffeeContainer.getPortion(Portion.SMALL)).andReturn(true);
+		EasyMock.expect(waterContainer.getPortion(Portion.SMALL)).andThrow(new NotEnoughPortion());
+		
+		mock.replay();
+				
+		Assert.assertEquals(true, coffeeMachine.makeCoffee(Portion.SMALL));
+		Assert.assertEquals(true, coffeeMachine.makeCoffee(Portion.SMALL));
+		
+		exception.expect(NotEnoughPortion.class);
+		Assert.assertEquals(true, coffeeMachine.makeCoffee(Portion.SMALL));
+		
 		mock.verify();
 	}
 }
