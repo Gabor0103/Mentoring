@@ -7,14 +7,13 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import com.gabor.coffeeData.Portion;
-import com.gabor.coffeeMachine.IContainer;
-import com.gabor.coffeeMachine.impl.Container;
+import com.gabor.coffeeMachine.impl.WaterConatiner;
 import com.gabor.coffeeMaker.exceptions.NotEnoughPortion;
 
 
-public class ContainerUnitTests
+public class WaterContainerUnitTests
 {
-	IContainer container;
+	WaterConatiner waterContainer;
 	
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
@@ -22,19 +21,19 @@ public class ContainerUnitTests
 	@Before
 	public void setUp()
 	{
-		container = new Container(4);
+		waterContainer = new WaterConatiner(4);
 	}
 	
 	@Test
 	public void testGetPortion() throws NotEnoughPortion
 	{
-		Assert.assertEquals(true, container.getPortion(Portion.SMALL));
+		Assert.assertEquals(true, waterContainer.getPortion(Portion.SMALL));
 	}
 	
 	@Test
 	public void testGetPortionWithFailure() throws NotEnoughPortion
 	{
 		exception.expect(NotEnoughPortion.class);
-		container.getPortion(Portion.LARGE);
+		waterContainer.getPortion(Portion.LARGE);
 	}
 }
