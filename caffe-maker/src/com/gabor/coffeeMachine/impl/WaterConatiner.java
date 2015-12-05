@@ -6,18 +6,15 @@ import com.gabor.coffeeMaker.exceptions.NotEnoughPortion;
 
 public class WaterConatiner extends Container
 {
-	int currentVolume;
-	int totalVolume;
-	
 	public WaterConatiner(int volume)
 	{
-		currentVolume = volume;
+		super.totalVolume = volume;
 	}
 	
 	@Override
 	public boolean getPortion(Portion portion) throws NotEnoughPortion
-	{
-		if(currentVolume - portion.getSize() + 1 > 0)
+	{	
+		if(super.getTotalVolume() - portion.getSize() + 1 > 0)
 		{
 			return true;
 		}

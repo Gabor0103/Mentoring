@@ -8,16 +8,17 @@ import org.junit.Test;
 
 import com.gabor.coffeeData.Portion;
 import com.gabor.coffeeMachine.ICoffeeMachine;
-import com.gabor.coffeeMachine.IContainer;
+import com.gabor.coffeeMachine.impl.CoffeeConatiner;
 import com.gabor.coffeeMachine.impl.CoffeeMachine;
+import com.gabor.coffeeMachine.impl.WaterConatiner;
 import com.gabor.coffeeMaker.exceptions.NotEnoughPortion;
 
 public class CoffeeMachineUnitTests
 {
 
 	ICoffeeMachine coffeeMachine;
-	IContainer mockedWaterContainer;
-	IContainer mockedCoffeeContainer;
+	WaterConatiner mockedWaterContainer;
+	CoffeeConatiner mockedCoffeeContainer;
 	IMocksControl mock;
 	
 	@Before
@@ -25,8 +26,8 @@ public class CoffeeMachineUnitTests
 	{
 		mock = EasyMock.createStrictControl();
 		
-		mockedCoffeeContainer = mock.createMock(IContainer.class);
-		mockedWaterContainer = mock.createMock(IContainer.class);
+		mockedCoffeeContainer = mock.createMock(CoffeeConatiner.class);
+		mockedWaterContainer = mock.createMock(WaterConatiner.class);
 		
 		coffeeMachine = new CoffeeMachine(mockedWaterContainer, mockedCoffeeContainer);
 	}

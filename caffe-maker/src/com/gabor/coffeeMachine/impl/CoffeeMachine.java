@@ -5,17 +5,16 @@ import org.apache.log4j.Logger;
 
 import com.gabor.coffeeData.Portion;
 import com.gabor.coffeeMachine.ICoffeeMachine;
-import com.gabor.coffeeMachine.IContainer;
 import com.gabor.coffeeMaker.exceptions.NotEnoughPortion;
 
 public class CoffeeMachine implements ICoffeeMachine
 {
 	final static Logger logger = Logger.getLogger(CoffeeMachine.class);
 	
-	IContainer waterContainer;
-	IContainer coffeeContainer;
+	WaterConatiner waterContainer;
+	CoffeeConatiner coffeeContainer;
 	
-	public CoffeeMachine(IContainer waterContainer, IContainer coffeeContainer)
+	public CoffeeMachine(WaterConatiner waterContainer, CoffeeConatiner coffeeContainer)
 	{
 		this.coffeeContainer = coffeeContainer;
 		this.waterContainer = waterContainer;
@@ -32,7 +31,6 @@ public class CoffeeMachine implements ICoffeeMachine
 			isCoffeeEnough = coffeeContainer.getPortion(portion);
 			isWaterEnough = waterContainer.getPortion(portion);
 
-		
 			if(isCoffeeEnough && isWaterEnough)
 			{
 				return true;
