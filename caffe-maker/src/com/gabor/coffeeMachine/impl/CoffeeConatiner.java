@@ -12,15 +12,8 @@ public class CoffeeConatiner extends Container
 	}
 	
 	@Override
-	public boolean getPortion(Portion portion) throws NotEnoughPortion
-	{
-		if(totalVolume - portion.getSize() > 0)
-		{
-			return true;
-		}
-		else
-		{
-			throw new NotEnoughPortion();
-		}
+	public int getDecPortion(Portion portion) {
+		// TODO Auto-generated method stub
+		return portion.getSize();
 	}
 }

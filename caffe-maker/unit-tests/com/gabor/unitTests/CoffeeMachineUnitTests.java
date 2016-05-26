@@ -1,6 +1,8 @@
 package com.gabor.unitTests;
 
 import org.easymock.EasyMock;
+import org.mockito.InOrder;
+import org.mockito.Mockito;
 import org.easymock.IMocksControl;
 import org.junit.Assert;
 import org.junit.Before;
@@ -66,7 +68,7 @@ public class CoffeeMachineUnitTests
 		
 		mock.replay();
 
-		coffeeMachine.makeCoffee(Portion.LARGE);
+		Assert.assertEquals(false, coffeeMachine.makeCoffee(Portion.LARGE));
 
 		mock.verify();
 	}

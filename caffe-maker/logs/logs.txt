@@ -92,3 +92,5 @@
 2015-12-09 21:50:05 DEBUG PropertySourcesPropertyResolver:81 - Searching for key 'spring.liveBeansView.mbeanDomain' in [systemEnvironment]
 2015-12-09 21:50:05 DEBUG PropertySourcesPropertyResolver:103 - Could not find key 'spring.liveBeansView.mbeanDomain' in any property source. Returning [null]
 2015-12-09 21:50:05 DEBUG DefaultListableBeanFactory:251 - Returning cached instance of singleton bean 'helloBean'
+2015-12-11 08:30:00 ERROR CoffeeMachine:41 - Sorry something wrong com.gabor.coffeeMaker.exceptions.NotEnoughPortion: Not enough!
+2015-12-11 08:30:00 ERROR CoffeeMachine:41 - Sorry something wrong com.gabor.coffeeMaker.exceptions.NotEnoughPortion: Not enough!
