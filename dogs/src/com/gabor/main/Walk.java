@@ -16,29 +16,34 @@ public class Walk
 
 	public static void main(String[] args)
 	{
-		Person person = new Person();
-
-//		NemetJuhasz nemetjuhasz = new NemetJuhasz(4, 20);
-//		person.walkWithDog(nemetjuhasz);
+//		Person person = new Person();
+//
+////		NemetJuhasz nemetjuhasz = new NemetJuhasz(4, 20);
+////		person.walkWithDog(nemetjuhasz);
+//		
+//		//Abstract kutya implementalja a Comperable interface-t
+//		List<AbstractDog> list = createFoxiList();
+//
+//		Collections.sort(list);
+//		for (AbstractDog dog : list)
+//		{
+//			System.out.println(dog.bark() + ", My weight is: " +dog.mass);
+//		}
+//		
+//		//Külön rendezõ osztály amely implementálja a Comperatot interface-t
+//		List<AbstractDog> spanielList = createSpanielList();
+//		Collections.sort(spanielList, new DogsSorting());
+////		Collections.sort(spanielList);
+//		
+//		for(AbstractDog sp : spanielList)
+//		{
+//			System.out.println("I am a spaniel and my weight: " + sp.mass + " and my speed is: " + sp.speed);
+//		}
 		
-		//Abstract kutya implementalja a Comperable interface-t
-		List<AbstractDog> list = createFoxiList();
-
-		Collections.sort(list);
-		for (AbstractDog dog : list)
-		{
-			System.out.println(dog.bark() + ", My weight is: " +dog.mass);
-		}
-		
-		//Külön rendezõ osztály amely implementálja a Comperatot interface-t
-		List<AbstractDog> spanielList = createSpanielList();
-		Collections.sort(spanielList, new DogsSorting());
-//		Collections.sort(spanielList);
-		
-		for(AbstractDog sp : spanielList)
-		{
-			System.out.println("I am a spaniel and my weight: " + sp.mass + " and my speed is: " + sp.speed);
-		}
+		Integer number = 128;
+		Integer otherNumber = 128;
+		System.out.println(number == otherNumber);
+		System.out.println(number.equals(otherNumber));
 		
 	}
 

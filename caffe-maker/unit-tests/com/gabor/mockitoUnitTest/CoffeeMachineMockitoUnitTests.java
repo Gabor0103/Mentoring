@@ -22,14 +22,16 @@ public class CoffeeMachineMockitoUnitTests
 		CoffeeMachine coffeMachineWithMockito = new CoffeeMachine(mockedWaterContainerWithMockito, mockedCoffeeContainerWithMockito);
 		
 		//WHEN  -  when = expect
-		Mockito.when(mockedCoffeeContainerWithMockito.getPortion(Portion.SMALL)).thenReturn(true);
-		Mockito.when(mockedWaterContainerWithMockito.getPortion(Portion.SMALL)).thenReturn(true);
+//		Mockito.when(mockedCoffeeContainerWithMockito.getPortion(Portion.LARGE)).thenReturn(false);
+//		Mockito.when(mockedWaterContainerWithMockito.getPortion(Portion.SMALL)).thenReturn(true);
+//		Mockito.when(mockedCoffeeContainerWithMockito.getPortion(Portion.SMALL)).thenReturn(true);
+		
 
 		//tényleges hívás 
 		boolean bool = coffeMachineWithMockito.makeCoffee(Portion.SMALL);
 		
-		Mockito.verify(mockedCoffeeContainerWithMockito).getPortion(Portion.SMALL);
-		Mockito.verify(mockedWaterContainerWithMockito).getPortion(Portion.SMALL);
+//		Mockito.verify(mockedCoffeeContainerWithMockito).getPortion(Portion.LARGE);
+//		Mockito.verify(mockedWaterContainerWithMockito).getPortion(Portion.SMALL);
 		
 		//THEN
 		Assert.assertTrue(bool);
