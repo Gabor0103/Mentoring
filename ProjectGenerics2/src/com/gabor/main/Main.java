@@ -2,6 +2,7 @@ package com.gabor.main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import com.gabor.domain.Cars;
@@ -10,18 +11,19 @@ import com.gabor.domain.Vehicle;
 
 public class Main {
 
-	public static <K extends Vehicle> void main(String[] args) {
-		List<K> vehicles = createVehicle();
+	public static <K extends Vehicle, Z extends Collection<K>> void main(String[] args) {
+		Z vehicles = createVehicle();
 		
 		Vehicle vehicle = new Vehicle();
-		
-		int number = vehicle.numberOfCarsBasicOfColor(vehicles, "blue");
+		ColorChecker colorChecker = new ColorChecker<K>();
+				
+		int number = vehicle.numberOfCarsBasicOfColor(vehicles, colorChecker);
 		
 		System.out.println("Number of red: " + number);
 	}
 
 	
-	private static <K extends Vehicle> List<K> createVehicle()
+	private static <K extends Vehicle, Z extends Collection<K>> Z createVehicle()
 	{
 		Cars car1 = new Cars("red");
 		Cars car2 = new Cars("blue");
@@ -32,9 +34,10 @@ public class Main {
 		Motorcycle cycle3 = new Motorcycle("red");
 		Motorcycle cycle4 = new Motorcycle("red");
 		
-		List<K> vehicles = 
-				new ArrayList(Arrays.asList(car1, car2,car3,car4, cycle1, cycle2, cycle3, cycle4));
+		//Z vehicles = (Z) new ArrayList<Vehicle>(Arrays.asList(car1, car2,car3,car4, cycle1, cycle2, cycle3, cycle4)); Miért kell a castolás a <Vehicle> helyett miért nem lehet K
 		
-		return vehicles;
+		List<K> vehicles = new ArrayList(Arrays.asList(car1, car2,car3,car4, cycle1, cycle2, cycle3, cycle4));
+		
+		return (Z) vehicles;
 	}
 }

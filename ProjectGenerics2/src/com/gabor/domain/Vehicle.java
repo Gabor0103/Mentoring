@@ -1,13 +1,25 @@
 package com.gabor.domain;
 
-import java.util.List;
+import java.util.Collection;
 
+import com.gabor.main.IChecker;
 import com.gabor.main.IVehicle;
 
 public class Vehicle implements IVehicle {
 
 	protected String color;
+	protected int power;
 	
+	public int getPower()
+	{
+		return power;
+	}
+
+	public void setPower(int power)
+	{
+		this.power = power;
+	}
+
 	public String getColor() {
 		return color;
 	}
@@ -17,7 +29,7 @@ public class Vehicle implements IVehicle {
 	}
 	
 	@Override
-	public <K extends Vehicle> int numberOfCarsBasicOfColor(List<K> vehicles, String color) {
+	public <K extends Vehicle, Z extends Collection<K>> int numberOfCarsBasicOfColor(Z vehicles, IChecker<K> colorChecker) {
 		int number = 0;
 		
 		for(K vehicle : vehicles)

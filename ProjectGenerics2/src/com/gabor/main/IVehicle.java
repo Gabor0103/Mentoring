@@ -1,11 +1,11 @@
 package com.gabor.main;
 
-import java.util.List;
+import java.util.Collection;
 
 import com.gabor.domain.Vehicle;
 
 public interface IVehicle {
 
-	public <T extends Vehicle> int numberOfCarsBasicOfColor(List<T> vehicles, String color);
+	public <K extends Vehicle, Z extends Collection<K>> int numberOfCarsBasicOfColor(Z vehicles, IChecker<K> colorChecker);
 	
 }
