@@ -4,6 +4,8 @@ import com.gabor.domain.Vehicle;
 
 public interface IChecker<K extends Vehicle>
 {
-	public int powerChecker(K vehicle);
-	public String colorChecker(String color);
+//	public int powerChecker(K vehicle);
+//	public String colorChecker(String color); TODO
+	
+	public boolean isTrue(K vehicle);
 }

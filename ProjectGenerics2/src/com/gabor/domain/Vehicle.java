@@ -7,8 +7,14 @@ import com.gabor.main.IVehicle;
 
 public class Vehicle implements IVehicle {
 
-	protected String color;
-	protected int power;
+	protected Vehicle(String color, int power)
+	{
+		this.color=color;
+		this.power=power;
+	}
+	
+	private String color;
+	private int power;
 	
 	public int getPower()
 	{

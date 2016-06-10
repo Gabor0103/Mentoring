@@ -13,16 +13,28 @@ public class Main {
 
 	public static <K extends Vehicle, Z extends Collection<K>> void main(String[] args) {
 		Z vehicles = createVehicle();
-		
-		Vehicle vehicle = new Vehicle();
-		ColorChecker colorChecker = new ColorChecker<K>();
-				
-		int number = vehicle.numberOfCarsBasicOfColor(vehicles, colorChecker);
+//		
+//		Vehicle vehicle = new Vehicle();
+		ColorChecker<K> colorChecker = new ColorChecker<K>("green");
+//				
+		int number = typeOfNumber(vehicles, colorChecker);
 		
 		System.out.println("Number of red: " + number);
 	}
 
-	
+	public static <L extends Vehicle, Z extends Collection<L>> Integer typeOfNumber(Z collection, IChecker<L> checker)
+	{
+		int i = 0; 
+		for(L vehicle : collection)
+		{
+			if(checker.isTrue(vehicle))
+			{
+				i++;
+			}
+		}
+		return i;
+		
+	}
 	private static <K extends Vehicle, Z extends Collection<K>> Z createVehicle()
 	{
 		Cars car1 = new Cars("red");

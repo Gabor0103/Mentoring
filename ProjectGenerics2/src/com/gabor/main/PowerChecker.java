@@ -6,16 +6,23 @@ public class PowerChecker<K extends Vehicle> implements IChecker<K>
 {
 
 	@Override
-	public int powerChecker(K vehicle)
+	public boolean isTrue(K vehicle)
 	{
-		return 0;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	@Override
-	public String colorChecker(String color)
-	{
-		// Do nothing
-		return "";
-	}
+//	@Override
+//	public int powerChecker(K vehicle)
+//	{
+//		// Do nothing
+//		return 0;
+//	}
+//
+//	@Override
+//	public String colorChecker(String color)
+//	{
+//		return color;
+//	}
 
 }
