@@ -4,12 +4,24 @@ import com.gabor.domain.Vehicle;
 
 public class PowerChecker<K extends Vehicle> implements IChecker<K>
 {
-
+	private int power;
+	
+	public PowerChecker(int power)
+	{
+		this.power = power;
+	}
+	
 	@Override
 	public boolean isTrue(K vehicle)
 	{
-		// TODO Auto-generated method stub
-		return false;
+		if(vehicle.getPower() >= power)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 //	@Override

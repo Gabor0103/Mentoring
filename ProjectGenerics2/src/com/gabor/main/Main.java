@@ -2,7 +2,6 @@ package com.gabor.main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 import com.gabor.domain.Cars;
@@ -10,19 +9,22 @@ import com.gabor.domain.Motorcycle;
 import com.gabor.domain.Vehicle;
 
 public class Main {
+	
+	public static <K extends Vehicle> void main(String[] args) {
+		
+		List<K> vehicles = createVehicle();
 
-	public static <K extends Vehicle, Z extends Collection<K>> void main(String[] args) {
-		Z vehicles = createVehicle();
-//		
-//		Vehicle vehicle = new Vehicle();
-		ColorChecker<K> colorChecker = new ColorChecker<K>("green");
-//				
+		ColorChecker<K> colorChecker = new ColorChecker<K>("red");
+		PowerChecker<K> powerChecker = new PowerChecker<K>(51);
+				
 		int number = typeOfNumber(vehicles, colorChecker);
+		int numberOfPower = typeOfNumber(vehicles, powerChecker);
 		
 		System.out.println("Number of red: " + number);
+		System.out.println("Number of the vehicles which the power is grater than 50: " + numberOfPower);
 	}
 
-	public static <L extends Vehicle, Z extends Collection<L>> Integer typeOfNumber(Z collection, IChecker<L> checker)
+	public static <L extends Vehicle> Integer typeOfNumber(List<L> collection, IChecker<L> checker)
 	{
 		int i = 0; 
 		for(L vehicle : collection)
@@ -35,21 +37,36 @@ public class Main {
 		return i;
 		
 	}
-	private static <K extends Vehicle, Z extends Collection<K>> Z createVehicle()
+	
+//	private static List<Vehicle> createVehicle()
+//	{
+//		Cars car1 = new Cars("red");
+//		Cars car2 = new Cars("blue");
+//		Cars car3 = new Cars("green");
+//		Cars car4 = new Cars("red");
+//		Motorcycle cycle1 = new Motorcycle("green");
+//		Motorcycle cycle2 = new Motorcycle("green");
+//		Motorcycle cycle3 = new Motorcycle("red");
+//		Motorcycle cycle4 = new Motorcycle("red");
+//		
+//		List<Vehicle> vehicles = new ArrayList<Vehicle>(Arrays.asList(car1, car2,car3,car4, cycle1, cycle2, cycle3, cycle4));
+//		
+//		//rawtype?? https://docs.oracle.com/javase/tutorial/java/generics/rawTypes.html
+//		return new ArrayList<Vehicle>(Arrays.asList(car1, car2,car3,car4, cycle1, cycle2, cycle3, cycle4));
+//	}
+	
+	private static <K extends Vehicle> List<K> createVehicle()
 	{
-		Cars car1 = new Cars("red");
-		Cars car2 = new Cars("blue");
-		Cars car3 = new Cars("green");
-		Cars car4 = new Cars("red");
-		Motorcycle cycle1 = new Motorcycle("green");
-		Motorcycle cycle2 = new Motorcycle("green");
-		Motorcycle cycle3 = new Motorcycle("red");
-		Motorcycle cycle4 = new Motorcycle("red");
+		Cars car1 = new Cars("red",1100);
+		Cars car2 = new Cars("blue",1256);
+		Cars car3 = new Cars("green",526);
+		Cars car4 = new Cars("red",920);
+		Motorcycle cycle1 = new Motorcycle("green",1125);
+		Motorcycle cycle2 = new Motorcycle("green",1235);
+		Motorcycle cycle3 = new Motorcycle("red",255);
+		Motorcycle cycle4 = new Motorcycle("red",50);
 		
-		//Z vehicles = (Z) new ArrayList<Vehicle>(Arrays.asList(car1, car2,car3,car4, cycle1, cycle2, cycle3, cycle4)); Miért kell a castolás a <Vehicle> helyett miért nem lehet K
-		
-		List<K> vehicles = new ArrayList(Arrays.asList(car1, car2,car3,car4, cycle1, cycle2, cycle3, cycle4));
-		
-		return (Z) vehicles;
+		//rawtype?? https://docs.oracle.com/javase/tutorial/java/generics/rawTypes.html
+		return new ArrayList(Arrays.asList(car1, car2,car3,car4, cycle1, cycle2, cycle3, cycle4));
 	}
 }

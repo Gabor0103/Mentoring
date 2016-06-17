@@ -6,6 +6,6 @@ import com.gabor.domain.Vehicle;
 
 public interface IVehicle {
 
-	public <K extends Vehicle, Z extends Collection<K>> int numberOfCarsBasicOfColor(Z vehicles, IChecker<K> colorChecker);
+//	public <K extends Vehicle, Z extends Collection<K>> int numberOfCarsBasicOfColor(Z vehicles, IChecker<K> colorChecker);
 	
 }

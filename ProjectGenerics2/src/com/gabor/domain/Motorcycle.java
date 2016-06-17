@@ -2,8 +2,8 @@ package com.gabor.domain;
 
 public class Motorcycle extends Vehicle {
 
-	public Motorcycle(String color) 
+	public Motorcycle(String color, int power) 
 	{
-		super(color, 12);
+		super(color, power);
 	}
 }

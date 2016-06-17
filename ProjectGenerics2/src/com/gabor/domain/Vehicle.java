@@ -34,20 +34,20 @@ public class Vehicle implements IVehicle {
 		this.color = color;
 	}
 	
-	@Override
-	public <K extends Vehicle, Z extends Collection<K>> int numberOfCarsBasicOfColor(Z vehicles, IChecker<K> colorChecker) {
-		int number = 0;
-		
-		for(K vehicle : vehicles)
-		{
-			if(vehicle.getColor().equals(color))
-			{
-				number++;
-			}
-		}
-		
-		return number;
-	}
+//	@Override
+//	public <K extends Vehicle, Z extends Collection<K>> int numberOfCarsBasicOfColor(Z vehicles, IChecker<K> colorChecker) {
+//		int number = 0;
+//		
+//		for(K vehicle : vehicles)
+//		{
+//			if(vehicle.getColor().equals(color))
+//			{
+//				number++;
+//			}
+//		}
+//		
+//		return number;
+//	}
 
 		
 }
