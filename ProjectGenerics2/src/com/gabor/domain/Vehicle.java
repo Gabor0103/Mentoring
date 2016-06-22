@@ -1,11 +1,8 @@
 package com.gabor.domain;
 
-import java.util.Collection;
-
-import com.gabor.main.IChecker;
 import com.gabor.main.IVehicle;
-
-public class Vehicle implements IVehicle {
+//a comperablenek miért kell megadni tipus parametert ha úgy is az adott osztályra vonatkozik??
+public class Vehicle implements IVehicle, Comparable<Integer>{
 
 	protected Vehicle(String color, int power)
 	{
@@ -33,6 +30,24 @@ public class Vehicle implements IVehicle {
 	public void setColor(String color) {
 		this.color = color;
 	}
+
+	@Override
+	public int compareTo(Integer i) {
+		if(this.power > i)
+		{
+			return -1;
+		}
+		else if(this.power == 0)
+		{
+			return 0;
+		}
+		else
+		{
+			return 1;
+		}
+	}
+
+
 	
 //	@Override
 //	public <K extends Vehicle, Z extends Collection<K>> int numberOfCarsBasicOfColor(Z vehicles, IChecker<K> colorChecker) {

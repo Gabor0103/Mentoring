@@ -19,9 +19,12 @@ public class Main {
 				
 		int number = typeOfNumber(vehicles, colorChecker);
 		int numberOfPower = typeOfNumber(vehicles, powerChecker);
+		int numberOfPowerWithComperable = typeOfNumber(vehicles);
 		
 		System.out.println("Number of red: " + number);
 		System.out.println("Number of the vehicles which the power is grater than 50: " + numberOfPower);
+		System.out.println("Number of the vehicles which the power is grater than 50 with comperable: " 
+					+ numberOfPowerWithComperable);
 	}
 
 	public static <L extends Vehicle> Integer typeOfNumber(List<L> collection, IChecker<L> checker)
@@ -35,7 +38,19 @@ public class Main {
 			}
 		}
 		return i;
-		
+	}
+	
+	public static <L extends Vehicle> int typeOfNumber(List<L> collection)
+	{
+		int i = 0;
+		for(L vehicle : collection)
+		{
+			if(vehicle.compareTo(1235) == -1)
+			{
+				i++;
+			}
+		}
+		return i;
 	}
 	
 //	private static List<Vehicle> createVehicle()
