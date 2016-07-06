@@ -4,12 +4,21 @@ public class Main {
 	
 	public static <T extends Object> void main(String[] args){
 		T[] array = (T[])new Object[]{"a",2,3,5};
+		T[] array1 = (T[])new Object[]{"a",2,3,5,"b"};
 		
 		T[] arrayWithSwapElements = switchElement(array, 0, 2);
+		
+		T[] arrayWithSimpleSwapElements = simpleSwitchElement(array1, 0, 4);
 		
 		for(int index=0; index<arrayWithSwapElements.length; index++)
 		{
 			System.out.println("swaped array: " + arrayWithSwapElements[index]);
+		}
+		System.out.println("-----------------------------------------");
+		for(int index=0; index<arrayWithSimpleSwapElements.length; index++)
+		{
+			
+			System.out.println("swaped array: " + arrayWithSimpleSwapElements[index]);
 		}
 	}
 	
@@ -33,6 +42,14 @@ public class Main {
 		inputArray[from] = temp2;
 		inputArray[to] = temp1;
 		
+		return inputArray;
+	}
+	
+	public static <T extends Object> T[] simpleSwitchElement(T[] inputArray, int from, int to){
+		T temp1 = inputArray[from];
+		T temp2 = inputArray[to];
+		inputArray[to]=temp1;
+		inputArray[from]=temp2;
 		return inputArray;
 	}
 }
