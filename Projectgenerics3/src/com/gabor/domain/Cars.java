@@ -6,10 +6,4 @@ public class Cars extends Vehicle {
 	{
 		super(color, power);
 	}	
-	
-	@Override
-	public String toString()
-	{
-		return super.toString() + ": car";
-	}
 }
