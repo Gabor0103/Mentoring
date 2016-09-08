@@ -1,5 +1,9 @@
 package com.gabor.main;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
 	
 	public static <T extends Object> void main(String[] args){
@@ -51,5 +55,23 @@ public class Main {
 		inputArray[to]=temp1;
 		inputArray[from]=temp2;
 		return inputArray;
+	}
+	
+	public void test()
+	{
+		List<? super Number> valami = new ArrayList<>();
+		valami.add(new Double(1.2));
+		valami.add(new Integer(5));
+		
+//		for(Number i : valami) Nem engedi
+//		{
+//			
+//		}
+		
+		List<? extends Number> valami2 = new ArrayList<>(Arrays.asList(1,2,3,5,3.2));
+		for(Number i : valami2)
+		{
+			System.out.println(i);
+		}
 	}
 }
