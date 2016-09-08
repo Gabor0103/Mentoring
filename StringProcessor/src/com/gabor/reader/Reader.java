@@ -12,7 +12,7 @@ public class Reader
 		try 
 		{
 			return 
-				removeCharacters(Files.lines(Paths.get("E:\\mentoring\\mentoringWorkspace\\StringProcessor\\resources\\27769_de-saint-exupery-antoine_the-little-prince.txt")));
+				removeCharacters(Files.lines(Paths.get("E:\\mentoring\\gitMentoring\\Mentoring\\StringProcessor\\resources\\27769_de-saint-exupery-antoine_the-little-prince.txt")));
 //					removeCharacters(Files.lines(Paths.get("E:\\mentoring\\mentoringWorkspace\\StringProcessor\\resources\\example.txt")));
 			
 		} 

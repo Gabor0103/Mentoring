@@ -1,6 +1,7 @@
 package com.gabor.main;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -32,43 +33,55 @@ public class Main
 		
 		//solution with LAMBDA
 		//List<String> list = stream.map(word -> word.split(" ")).flatMap(Arrays::stream).distinct().collect(Collectors.toList());
-		
-		Set<String> setOfWords = stream.map(text -> text.split(" ")).flatMap(Arrays::stream).collect(Collectors.toSet());
-		System.out.println("Numer of words without recurrence: " + setOfWords.size());
+//		
+//		Set<String> setOfWords = stream.map(text -> text.split(" ")).flatMap(Arrays::stream).collect(Collectors.toSet());
+//		System.out.println("Numer of words without recurrence: " + setOfWords.size());
 		
 		//---------------- 2. exercise ----------------
 		
-		StringComparator sc = new StringComparator();
+//		StringComparator sc = new StringComparator();
+//		
+//		TreeSet<String> ts = new TreeSet<>(sc);
+//		
+//		ts.addAll(setOfWords);
+//		
+//		Iterator<String> iterator = ts.iterator();
+//		
+//		int i = 10;		
+//		while(iterator.hasNext() && i > 0)
+//		{
+//			System.out.println("word: " + iterator.next());
+//			--i;
+//		}
 		
-		TreeSet<String> ts = new TreeSet<>(sc);
-		
-		ts.addAll(setOfWords);
-		
-		Iterator<String> iterator = ts.iterator();
-		
-		int i = 10;		
-		while(iterator.hasNext() && i > 0)
-		{
-			System.out.println("word: " + iterator.next());
-			--i;
-		}
-		
-		//---------------- 3. exercise ---------------- https://www.mkyong.com/java/how-to-sort-a-map-in-java/
+		//---------------- 3-4. exercise ---------------- https://www.mkyong.com/java/how-to-sort-a-map-in-java/
 		List<String> listOfWords = stream.map(text -> text.split(" ")).flatMap(Arrays::stream).collect(Collectors.toList());
+		
+		List<String> ignorList = new ArrayList<String>();
+		ignorList.add("the");
+		ignorList.add("I");
+		ignorList.add("to");
+		ignorList.add("a");
+		ignorList.add("and");
+		ignorList.add("of");
+		ignorList.add("");
 		
 		HashMap<String, Integer> map = new HashMap<>();
 		Integer value = 1;
 		
 		for(String word : listOfWords)
 		{
-			if(map.containsKey(word))
+			if(!ignorList.contains(word))
 			{
-				value = map.get(word);
-				map.put(word, ++value);
-			}
-			else
-			{
-				map.put(word, 1);
+				if(map.containsKey(word))
+				{
+					value = map.get(word);
+					map.put(word, ++value);
+				}
+				else
+				{
+					map.put(word, 1);
+				}
 			}
 		}
 		
