@@ -18,17 +18,21 @@ public class VehicleRetriever<L extends Vehicle> {
 	// ---------------------------------------------
 
 	// ---------- 2 feladat megoldása --------------
-	public List<L> getSortedList(List<L> vehicles)
+	public static void getSortedList(List<? extends Vehicle> vehicles)
 	{
-		Collections.sort(vehicles, new Comparator<L>() {
-
-			@Override
-			public int compare(L vehicle1, L vehicle2) {
-				return vehicle1.getPower() < vehicle2.getPower() ? -1 : (vehicle1.getPower() > vehicle2.getPower()) ? 1 : 0;
-			}
-		});
+//		Collections.sort(vehicles, new Comparator<Vehicle>() {
+//			@Override
+//			public int compare(Vehicle vehicle1, Vehicle vehicle2) {
+//				return vehicle1.getPower() < vehicle2.getPower() ? -1 : (vehicle1.getPower() > vehicle2.getPower()) ? 1 : 0;
+//			}
+//		});
 		
-		return vehicles;
+		Collections.sort(vehicles, (v1, v2) -> v1.getPower() < v2.getPower() ? -1 : (v1.getPower() > v2.getPower()) ? 1 : 0);
+		
+		for(Vehicle v : vehicles)
+		{
+			System.out.println(v.getPower() + "*****");
+		}
 	}
 	// ---------------------------------------------
 }

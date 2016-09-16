@@ -13,23 +13,28 @@ import com.gabor.impl.VehicleRetriever;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("--- 1. exercise ---");
-		firstExercise();
-		System.out.println("--- 2. exercise ---");
-		secondExercise();
-		System.out.println("--- 3. exercise ---");
-		List<Integer> numbers = new ArrayList<>();
-		numbers.add(123);
-		numbers.add(1234);
-		numbers.add(12345);
-		
-		List<Vehicle> vehicles = new ArrayList<Vehicle>();
-		List<Vehicle> vehicles2 = thirdExercise(numbers, vehicles);
-		
-		for(Vehicle v : vehicles2)
-		{
-			System.out.println("This is a " + v.getClass().getSimpleName() + " and it's power is: " + v.getPower());
-		}
+		A b = new B();
+		b.do1();
+		((B)b).do2();
+		A a = new A();
+		a.do1();
+//		System.out.println("--- 1. exercise ---");
+//		firstExercise();
+//		System.out.println("--- 2. exercise ---");
+//		secondExercise();
+//		System.out.println("--- 3. exercise ---");
+//		List<Integer> numbers = new ArrayList<>();
+//		numbers.add(123);
+//		numbers.add(1234);
+//		numbers.add(12345);
+//		
+//		List<Vehicle> vehicles = new ArrayList<Vehicle>();
+//		thirdExercise(numbers, vehicles);
+//		
+//		for(Vehicle v : vehicles)
+//		{
+//			System.out.println("This is a " + v.getClass().getSimpleName() + " and it's power is: " + v);
+//		}
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -50,8 +55,9 @@ public class Main {
 		MotorCycle cycle2 = new MotorCycle(125);
 		MotorCycle cycle3 = new MotorCycle(125);
 		MotorCycle cycle4 = new MotorCycle(250);
+		MotorCycle cycle5 = new MotorCycle(250000);
 		
-		return new ArrayList(Arrays.asList(cycle1, cycle2,cycle3,cycle4));
+		return new ArrayList(Arrays.asList(cycle5, cycle1, cycle2,cycle3,cycle4));
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -88,26 +94,21 @@ public class Main {
 	{
 		List<Car> cars = createCars();
 		List<MotorCycle> cycles = createCycles();
+		List<Vehicle> vehicles = new ArrayList<Vehicle>();
+		vehicles.addAll(cycles);
+		vehicles.addAll(cars);
 		
-		VehicleRetriever<Car> vrWithCars = new VehicleRetriever<>();
-		List<Car> sortedCars = vrWithCars.getSortedList(cars);
+		System.out.println("Sorted Vehicle list: ");
+		VehicleRetriever.getSortedList(vehicles);
+		
 		System.out.println("Sorted Car list: ");
-		for(Car car : sortedCars)
-		{
-			System.out.println(car.toString());
-		}
+		VehicleRetriever.getSortedList(cars);
 		
-		VehicleRetriever<MotorCycle> vrWithCycles = new VehicleRetriever<>();
-		List<MotorCycle> sortedCycles = vrWithCycles.getSortedList(cycles);
 		System.out.println("Sorted Cycle list: ");
-		for(MotorCycle cycle : sortedCycles)
-		{
-			System.out.println(cycle.toString());
-		}
+		VehicleRetriever.getSortedList(cycles);
 	}
 	
-	@SuppressWarnings("unchecked")
-	private static List<Vehicle> thirdExercise(List<Integer> numbers, List<? super Vehicle> vehicles)
+	private static void thirdExercise(List<Integer> numbers, List<? super Vehicle> vehicles)
 	{
 		for(Integer power : numbers)
 		{
@@ -125,7 +126,6 @@ public class Main {
 				vehicles.add(cycle);
 			}
 		}
-		return (List<Vehicle>) vehicles;
 	}
 	
 //	Mi a különbség???
