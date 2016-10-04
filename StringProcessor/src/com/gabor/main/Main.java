@@ -1,6 +1,7 @@
 package com.gabor.main;
 
 
+import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,33 +22,45 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
+import com.gabor.compare.Employee;
 import com.gabor.compare.StringComparator;
 import com.gabor.reader.Reader;
 
 public class Main
 {	
+
+	
+	
 	public static void main(String[] args)
-	{
+	{	    
 		Reader reader = new Reader();
 		
 		Stream<String> stream = reader.readInput();
 		
+		FirstExercise fe = new FirstExercise();
+		SecondExercise se = new SecondExercise();
+		
 		//---------------- 1. exercise ----------------
 		
-//		System.out.println("Numer of words without recurrence: " + 
-//				stream.map(word -> word.split(" ")).flatMap(Arrays::stream).distinct().count());
-		
-		//solution with LAMBDA
-//		List<String> list = stream.map(word -> word.split(" ")).flatMap(Arrays::stream).distinct().collect(Collectors.toList());
-//		stream.map(word -> word.split(" ")).flatMap(Arrays::stream).distinct().sorted(sc).limit(5).forEach(x -> System.out.print(x + " "));
-		
-//		Set<String> setOfWords = stream.map(text -> text.split(" ")).flatMap(Arrays::stream).collect(Collectors.toSet());
-//		System.out.println("Numer of words without recurrence: " + setOfWords.size());
+//		fe.firstExercise(stream);
 //		
+//		fe.firstExerciseWithLambda(stream);
+	
 //		//---------------- 2. exercise ----------------
 		
+//		se.secondExercise(stream);
+		
+		se.secondExerciseWithLambda(stream);
+		
 //		StringComparator sc = new StringComparator();
-//		stream.map(word -> word.split(" ")).flatMap(Arrays::stream).distinct().sorted(sc).limit(5).forEach(System.out::println);
+//		stream
+//		.map(word -> word.split(" "))
+//		.flatMap(Arrays::stream)
+//		.distinct()
+//		.sorted(new StringComparator())
+//		.limit(5)
+//		.forEach(System.out::println);
 
 //		StringComparator sc = new StringComparator();		
 //		
@@ -70,7 +83,11 @@ public class Main
 //		StringComparator sc = new StringComparator();
 //		HashMap<String, Integer> map = new HashMap<>();
 //		int value = 1;
-//		stream.map(text -> text.split(" ")).flatMap(Arrays::stream).sorted(sc).forEach(word -> map.containsKey(word) ? map.put(word, ++value) : map.put(word, 1));
+//		stream
+//		.map(text -> text.split(" "))
+//		.flatMap(Arrays::stream)
+//		.sorted(sc)
+//		.forEach(word -> map.containsKey(word) ? map.put(word, ++value) : map.put(word, 1));
 		
 	
 		
