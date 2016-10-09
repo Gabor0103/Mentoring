@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 public class FirstExercise 
 {
 		
-	public void firstExercise(Stream<String> stream)
+	public void firstExerciseDefaultSolution(Stream<String> stream)
 	{
 		Set<String> setOfWords = stream.map(text -> text.split(" ")).flatMap(Arrays::stream).collect(Collectors.toSet());
 		
