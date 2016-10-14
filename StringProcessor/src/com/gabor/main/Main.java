@@ -22,6 +22,7 @@ public class Main
 		FourthExercise foe = new FourthExercise();
 		FifthExercise fie = new FifthExercise();
 		
+		
 		System.out.println("---------------- 1. exercise ----------------");
 		
 		fe.firstExerciseDefaultSolution(readInputFile(reader));

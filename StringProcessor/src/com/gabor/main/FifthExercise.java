@@ -14,9 +14,9 @@ public class FifthExercise
 	{
 		List<String> listOfWords = stream.map(text -> text.split(" ")).flatMap(Arrays::stream).collect(Collectors.toList());
 		
-
-		
 		List<String> ignoredListOfWords = new ArrayList<>();
+		
+		//listOfWords.removeAll(ignoredListOfWords); kiprbálni
 		
 		for(String word : listOfWords)
 		{

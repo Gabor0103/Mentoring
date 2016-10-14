@@ -13,6 +13,7 @@ public class FourthExercise
 
 	public void fourthExerciseDefaultSolution(Stream<String> stream)
 	{
+		//javítani!!
 		List<String> listOfWords = stream.map(text -> text.split(" ")).flatMap(Arrays::stream).collect(Collectors.toList());
 		
 		TreeMap<String, Integer> treeMap = new TreeMap<>(new StringComparator());
